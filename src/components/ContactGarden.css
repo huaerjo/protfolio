@@ -1,0 +1,30 @@
+/* Decorative garden stays behind the central contact panel. */
+.contact{position:relative;isolation:isolate;background:#08090a!important;height:auto!important;min-height:640px;padding-top:58px}
+.contact .contact-layout{position:relative;z-index:1;flex:none;width:76%;max-width:1480px;min-height:510px;margin:0 auto 56px;border-radius:30px;background:#171717;box-shadow:0 24px 65px #0005}
+.contact .contact-inner.shell{padding-inline:clamp(24px,3vw,64px)}
+.contact-gardens{position:absolute;inset:35px 0 70px;z-index:0;overflow:hidden;pointer-events:none;background:linear-gradient(0deg,#14102099,transparent 85%)}
+.contact-garden{position:absolute;bottom:0;width:19%;max-width:310px;height:100%;overflow:visible}
+.contact-garden-left{left:-1.5%}
+.contact-garden-right{right:-1.5%;transform:scaleX(-1)}
+.garden-flower,.garden-leaf{transform:scale(.08);opacity:0;transform-box:fill-box;transform-origin:50% 90%}
+.has-bloomed .garden-flower,.has-bloomed .garden-leaf{animation:garden-unfold 2.8s cubic-bezier(.22,.75,.2,1) var(--bloom-delay,0s) both}
+.garden-stems{stroke-dasharray:650;stroke-dashoffset:650}
+.has-bloomed .garden-stems{animation:garden-grow 2.8s cubic-bezier(.22,.75,.2,1) both}
+.contact-gardens:not(.is-visible) *{animation-play-state:paused!important}
+@keyframes garden-unfold{0%{transform:scale(.08) rotate(-18deg);opacity:0}20%{opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes garden-grow{to{stroke-dashoffset:0}}
+@media(max-width:1100px){.contact .contact-layout{width:82%;min-height:460px}.contact-garden{width:22%}.contact .contact-inner.shell{padding-inline:24px}.contact .contact-heading h2{font-size:clamp(28px,3.4vw,45px)}}
+@media(max-width:760px){.contact{padding-top:32px}.contact .contact-layout{width:88%;margin-bottom:65px;min-height:0;border-radius:24px}.contact-gardens{inset:0 0 50px}.contact-garden{width:37%;height:420px;opacity:.7}.contact-garden-left{left:-13%}.contact-garden-right{right:-13%}.contact .contact-inner.shell{padding:42px 24px}.contact .contact-art{height:300px}}
+@media(prefers-reduced-motion:reduce){.contact-gardens .garden-flower,.contact-gardens .garden-leaf{animation:none;transform:none;opacity:1}.contact-gardens .garden-stems{animation:none;stroke-dashoffset:0}}
+
+/* More breathing room for the two side gardens. */
+.contact .contact-layout{width:70%;max-width:1280px;min-height:450px;margin-bottom:64px}
+.contact .contact-inner.shell{padding:30px clamp(24px,3vw,48px)}
+.contact .contact-description,.contact .contact-links{width:100%;max-width:440px}
+.contact .contact-links{grid-template-columns:1.2fr 1fr;gap:16px 20px}
+.contact .contact-heading h2{font-size:clamp(30px,3vw,50px)}
+@media(min-width:761px) and (max-width:1100px){.contact .contact-layout{width:72%;min-height:420px}.contact .contact-inner.shell{padding:28px 24px}.contact .contact-heading h2{font-size:30px}.contact .contact-description{font-size:13px}.contact .contact-links{grid-template-columns:1fr;gap:12px}.contact .contact-links strong{font-size:14px}}
+@media(max-width:760px){.contact .contact-layout{width:84%;min-height:0}.contact .contact-inner.shell{padding:34px 24px}.contact .contact-links{grid-template-columns:1fr;gap:14px}.contact .contact-art{height:260px}}
+
+/* Soften cropped tool labels where the card meets the outer flowers. */
+.contact .contact-art:before{content:"";position:absolute;inset:0 0 0 auto;width:clamp(40px,5vw,88px);z-index:3;pointer-events:none;background:linear-gradient(90deg,transparent 0%,#171717b3 60%,#171717 100%)}
